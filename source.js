@@ -167,9 +167,11 @@ function operate(firstNumber, operator, secondNumber) {
             result = firstNumber / secondNumber;
             break;
     }
+    //result is 50
     result = result.toFixed(10);
+    console.log(result);
     result = result.toString();
-    while (result.slice(-1) === '0' || result.slice(-1) === '.') {
+    while ((result.slice(-1) === '0' && result.includes('.')) || result.slice(-1) === '.') {
         result = result.slice(0, -1);
         console.log(result);
     }
