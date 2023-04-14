@@ -160,10 +160,15 @@ function operate(firstNumber, operator, secondNumber) {
             break;
         case '÷':
             result = firstNumber / secondNumber;
+            break;
+    }
+    result = result.toFixed(10);
+    result = result.toString();
+    while (result.slice(-1) === '0') {
+        result = result.slice(0, -1);
+        console.log(result);
     }
     return result;
-    //add code here to resize the numbers if they take too much screen space
-    //nevermind, probably do it in the working/equation displayupdate functions
 }
 
 //Bugs to fix & things to do
@@ -172,3 +177,5 @@ function operate(firstNumber, operator, secondNumber) {
 // read to fix above bug: https://javascript.plainenglish.io/why-0-1-0-2-0-3-in-javascript-d7e218224a72
 // gpt says 1234567890 * 9876543210 = 12193263113702179500 but yours = 12193263111263527000
 // still need to add a negative number functionality 
+
+
