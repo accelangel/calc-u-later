@@ -1,13 +1,12 @@
-
-
 body {
-    min-height: 100vh;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin: 0;
-    background-color: blanchedalmond;
+    background-color: #e8f2e9;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .calculator {
@@ -24,10 +23,33 @@ body {
 .display {
     height: 60px;
     width: 88%;
-    background-color: rgb(237, 237, 237);
+    background-color: #e8f2e9;
     margin: 10px 0px 5px 0px;
     border-radius: 5px;
     border: solid 2px black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: rgb(89, 150, 77);
+}
+
+.equationLine {
+    height: 20px;
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 10px 0px 0px;
+    font-size: 14px;
+}
+
+.workingLine {
+    height: 30px;
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    padding: 3px 10px 5px 0px;
+    font-size: 25px;
 }
 
 .clearDeleteContainer {
@@ -51,12 +73,15 @@ body {
 .clear {
     background-color: rgb(249, 173, 173);
 }
+
 .clear:hover {
     filter: brightness(80%);
 }
+
 .delete {
     background-color: rgb(164, 182, 255);
 }
+
 .delete:hover {
     filter: brightness(80%);
 }
@@ -76,11 +101,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(237, 237, 237);
+    background-color: #e8f2e9;
     border: solid 2px black;
     border-radius: 5px;
 }
 
 .button:hover {
     filter: brightness(80%);
+}
+
+img {
+    margin-top: 100px;
+    height: 300px;
+}
+
+h1 {
+    color: rgb(89, 150, 77);
 }
