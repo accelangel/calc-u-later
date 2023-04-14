@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Technology-Bold';
+    src: url('fonts/Technology-Bold.ttf') format('truetype');
+  }
+  
 body {
     min-height: 70vh;
     display: flex;
@@ -49,7 +54,8 @@ body {
     justify-content: flex-end;
     align-items: end;
     padding: 3px 10px 5px 0px;
-    font-size: 25px;
+    font-size: 30px;
+    font-family: 'Technology-Bold';
 }
 
 .clearDeleteContainer {

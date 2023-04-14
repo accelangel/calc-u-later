@@ -21,29 +21,86 @@ const clearButton = document.getElementById('clear');
 const deleteButton = document.getElementById('delete');
 
 //Assign variables to display elements 
-const equationLine = document.getElementById('equationLine');
-const workingLine = document.getElementById('workingLine');
+const equationDisplay = document.getElementById('equationDisplay');
+const workingDisplay = document.getElementById('workingDisplay');
 
 //Number Button Event Listeners
-one.addEventListener('click', () => numberBuffer(1));
-two.addEventListener('click', () => numberBuffer(2));
-three.addEventListener('click', () => numberBuffer(3));
-four.addEventListener('click', () => numberBuffer(4));
-five.addEventListener('click', () => numberBuffer(5));
-six.addEventListener('click', () => numberBuffer(6));
-seven.addEventListener('click', () => numberBuffer(7));
-eight.addEventListener('click', () => numberBuffer(8));
-nine.addEventListener('click', () => numberBuffer(9));
-zero.addEventListener('click', () => numberBuffer(0));
+one.addEventListener('click', () => {
+    numberBuffer(1);
+    workingDisplayUpdate();
+});
+two.addEventListener('click', () => {
+    numberBuffer(2);
+    workingDisplayUpdate();
+});
+three.addEventListener('click', () => {
+    numberBuffer(3);
+    workingDisplayUpdate();
+});
+four.addEventListener('click', () => {
+    numberBuffer(4);
+    workingDisplayUpdate();
+});
+five.addEventListener('click', () => {
+    numberBuffer(5);
+    workingDisplayUpdate();
+});
+six.addEventListener('click', () => {
+    numberBuffer(6);
+    workingDisplayUpdate();
+});
+seven.addEventListener('click', () => {
+    numberBuffer(7);
+    workingDisplayUpdate();
+});
+eight.addEventListener('click', () => {
+    numberBuffer(8);
+    workingDisplayUpdate();
+});
+nine.addEventListener('click', () => {
+    numberBuffer(9);
+    workingDisplayUpdate();
+});
+zero.addEventListener('click', () => {
+    numberBuffer(0);
+    workingDisplayUpdate();
+});
+equals.addEventListener('click', () => {
+    //work in progress
+});
 
 //Operation Buttons Event Listeners
-decimal.addEventListener('click', () => decimalBuffer('.'));
-equals.addEventListener('click', () => operate('=')); 
 sumButton.addEventListener('click', () => operationBuffer('+'));
 subtractButton.addEventListener('click', () => operationBuffer('−'));
 multiplyButton.addEventListener('click', () => operationBuffer('×'));
 divideButton.addEventListener('click', () => operationBuffer('÷'));
+decimal.addEventListener('click', () => decimalBuffer('.'));
+equals.addEventListener('click', () => operate('='));
+
 clearButton.addEventListener('click', () => clearDisplay());
+
+let firstNumber;
+let secondNumber;
+let workingDisplayString = '0';
+
+function numberBuffer(numberInput) {
+    if(workingDisplayString === '0') workingDisplayString = '';
+    workingDisplayString += numberInput;
+}
+
+function workingDisplayUpdate () {
+    workingDisplay.innerText = workingDisplayString;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
