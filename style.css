@@ -136,6 +136,7 @@ footer {
     position: absolute;
     bottom: 0;
     width: 50%;
+    font-family:'Courier New', Courier, monospace;
 }
 
 a {
