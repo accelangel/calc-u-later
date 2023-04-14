@@ -74,26 +74,33 @@ sumButton.addEventListener('click', () => operationBuffer('+'));
 subtractButton.addEventListener('click', () => operationBuffer('−'));
 multiplyButton.addEventListener('click', () => operationBuffer('×'));
 divideButton.addEventListener('click', () => operationBuffer('÷'));
+
 decimal.addEventListener('click', () => decimalBuffer('.'));
 equals.addEventListener('click', () => operate('='));
 
 clearButton.addEventListener('click', () => clearDisplay());
+//deleteButton.addEventListener('click', () => );
 
 let firstNumber;
 let secondNumber;
 let workingDisplayString = '0';
+let equationDisplayString = '';
 
 function numberBuffer(numberInput) {
-    if(workingDisplayString === '0') workingDisplayString = '';
+    if (workingDisplayString === '0') workingDisplayString = '';
     workingDisplayString += numberInput;
 }
 
-function workingDisplayUpdate () {
-    workingDisplay.innerText = workingDisplayString;
+function operationBuffer(operator) {
+    firstNumber = workingDisplayString;
+    //console.log(firstNumber); 
+    equationDisplayString = `${firstNumber} ${operator}`;
+    equationDisplayUpdate();
 }
 
 
-
+function workingDisplayUpdate() { workingDisplay.innerText = workingDisplayString; };
+function equationDisplayUpdate() { equationDisplay.innerText = equationDisplayString; }
 
 
 
