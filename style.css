@@ -33,7 +33,7 @@ body {
     color: rgb(89, 150, 77);
 }
 
-.equationLine {
+.equationDisplay {
     height: 20px;
     width: 95%;
     display: flex;
@@ -42,7 +42,7 @@ body {
     font-size: 14px;
 }
 
-.workingLine {
+.workingDisplay {
     height: 30px;
     width: 95%;
     display: flex;

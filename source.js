@@ -24,40 +24,26 @@ const deleteButton = document.getElementById('delete');
 const equationLine = document.getElementById('equationLine');
 const workingLine = document.getElementById('workingLine');
 
-let workingLineValue = '0';
-let equationLineValue = '';
-
-let firstNumber = '';
-let secondNumber = '';
-let operator = '';
-
-let firstNumberBool = false;
-let secondNumberBool = false;
-let operationBool = false;
-let numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, '.'];
-let hasRun = false;
-
 //Number Button Event Listeners
-one.addEventListener('click', () => operationBuffer(1));
-two.addEventListener('click', () => operationBuffer(2));
-three.addEventListener('click', () => operationBuffer(3));
-four.addEventListener('click', () => operationBuffer(4));
-five.addEventListener('click', () => operationBuffer(5));
-six.addEventListener('click', () => operationBuffer(6));
-seven.addEventListener('click', () => operationBuffer(7));
-eight.addEventListener('click', () => operationBuffer(8));
-nine.addEventListener('click', () => operationBuffer(9));
-zero.addEventListener('click', () => operationBuffer(0));
+one.addEventListener('click', () => numberBuffer(1));
+two.addEventListener('click', () => numberBuffer(2));
+three.addEventListener('click', () => numberBuffer(3));
+four.addEventListener('click', () => numberBuffer(4));
+five.addEventListener('click', () => numberBuffer(5));
+six.addEventListener('click', () => numberBuffer(6));
+seven.addEventListener('click', () => numberBuffer(7));
+eight.addEventListener('click', () => numberBuffer(8));
+nine.addEventListener('click', () => numberBuffer(9));
+zero.addEventListener('click', () => numberBuffer(0));
 
 //Operation Buttons Event Listeners
-decimal.addEventListener('click', () => operationBuffer('.'));
-equals.addEventListener('click', () => operationBuffer('='));
+decimal.addEventListener('click', () => decimalBuffer('.'));
+equals.addEventListener('click', () => operate('=')); 
 sumButton.addEventListener('click', () => operationBuffer('+'));
 subtractButton.addEventListener('click', () => operationBuffer('−'));
 multiplyButton.addEventListener('click', () => operationBuffer('×'));
 divideButton.addEventListener('click', () => operationBuffer('÷'));
 clearButton.addEventListener('click', () => clearDisplay());
-
 
 
 
