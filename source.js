@@ -88,7 +88,6 @@ let workingDisplayString = '0';
 let equationDisplayString = '';
 let firstNumberCompleted = false;
 let result;
-let brandNewOperation = true;
 
 function numberBuffer(numberInput) {
     console.log(`numberBufferStart: ${workingDisplayString}`);
@@ -137,6 +136,9 @@ function calculate() {
 
 function workingDisplayUpdate() { workingDisplay.innerText = workingDisplayString; };
 function equationDisplayUpdate() { equationDisplay.innerText = equationDisplayString; }
+function clearDisplay() {
+
+}
 
 function operate(firstNumber, operator, secondNumber) {
     firstNumber = parseFloat(firstNumber);
