@@ -74,9 +74,9 @@ sumButton.addEventListener('click', () => operationBuffer('+'));
 subtractButton.addEventListener('click', () => operationBuffer('−'));
 multiplyButton.addEventListener('click', () => operationBuffer('×'));
 divideButton.addEventListener('click', () => operationBuffer('÷'));
+equals.addEventListener('click', () => calculate());
 
 decimal.addEventListener('click', () => decimalBuffer('.'));
-equals.addEventListener('click', () => calculate());
 
 clearButton.addEventListener('click', () => clearDisplay());
 //deleteButton.addEventListener('click', () => );
@@ -86,18 +86,16 @@ let secondNumber;
 let operator;
 let workingDisplayString = '0';
 let equationDisplayString = '';
-let hasRun = false;
 let firstNumberCompleted = false;
+let result;
+let brandNewOperation = true;
 
 function numberBuffer(numberInput) {
+    console.log(`numberBufferStart: ${workingDisplayString}`);
     if (workingDisplayString === '0') workingDisplayString = '';
-    if (firstNumber) { // if first number exists, this is code for second number
-        if (!hasRun) {
-            workingDisplayString = '';
-            hasRun = true;
-        }
-    };
+    console.log(`numberBufferMiddle: ${workingDisplayString}`);
     workingDisplayString += numberInput;
+    console.log(`numberBufferEnd: ${workingDisplayString}`);
 }
 
 function operationBuffer(sign) {
@@ -107,6 +105,9 @@ function operationBuffer(sign) {
         equationDisplayUpdate();
         firstNumberCompleted = true;
         operator = sign;
+        //this may or may not create other bugs, but im tring to fix the second numbner . only demical bug
+        workingDisplayString = '0';
+        console.log(`operationBuffer: ${workingDisplayString}`);
     }
     else { //this allows you to change the operator sign after the secondNumber is already added
         equationDisplayString = `${firstNumber} ${sign}`;
@@ -115,48 +116,52 @@ function operationBuffer(sign) {
     }
 };
 
+function decimalBuffer() {
+    console.log(`demicalBufferStart: ${workingDisplayString}`);
+    if (!workingDisplayString.includes('.')) {
+        //
+        workingDisplayString += '.';
+        workingDisplayUpdate();
+        console.log(`demicalBufferEnd: ${workingDisplayString}`);
+    }
+}
+
 function calculate() {
     secondNumber = workingDisplayString;
-    console.log(`${firstNumber} ${operator} ${secondNumber} =`);
+    //console.log(`${firstNumber} ${operator} ${secondNumber} =`);
     workingDisplayString = operate(firstNumber, operator, secondNumber);
     workingDisplayUpdate();
+    equationDisplayString = `${firstNumber} ${operator} ${secondNumber} =`;
+    equationDisplayUpdate();
 }
 
 function workingDisplayUpdate() { workingDisplay.innerText = workingDisplayString; };
 function equationDisplayUpdate() { equationDisplay.innerText = equationDisplayString; }
 
-
-
-
-
-
-
-
-
-
-
-function add(a, b) {
-    return a + b;
-}
-
-function subtract(a, b) {
-    return a - b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a, b) {
-    return a / b;
-}
-
 function operate(firstNumber, operator, secondNumber) {
-    if (operator === '+') return add(firstNumber, secondNumber);
-    else if (operator === '−') return subtract(firstNumber, secondNumber);
-    else if (operator === '×') return multiply(firstNumber, secondNumber);
-    else if (operator === '÷') return divide(firstNumber, secondNumber);
+    firstNumber = parseFloat(firstNumber);
+    secondNumber = parseFloat(secondNumber);
+    switch (operator) {
+        case '+':
+            result = firstNumber + secondNumber;
+            break;
+        case '−':
+            result = firstNumber - secondNumber;
+            break;
+        case '×':
+            result = firstNumber * secondNumber;
+            break;
+        case '÷':
+            result = firstNumber / secondNumber;
+    }
+    return result;
+    //add code here to resize the numbers if they take too much screen space
+    //nevermind, probably do it in the working/equation displayupdate functions
 }
-//let result = (operate(12, '÷', 4));
-//console.log(`answer is ${result}`);
 
+//Bugs to fix & things to do
+// 0.1 + 0.2 = 0.30000000000000004
+// 0.3 - 0.2 = 0.09999999999999998
+// read to fix above bug: https://javascript.plainenglish.io/why-0-1-0-2-0-3-in-javascript-d7e218224a72
+// gpt says 1234567890 * 9876543210 = 12193263113702179500 but yours = 12193263111263527000
+// still need to add a negative number functionality 
