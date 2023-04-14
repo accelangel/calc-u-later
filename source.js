@@ -75,11 +75,10 @@ subtractButton.addEventListener('click', () => operationBuffer('−'));
 multiplyButton.addEventListener('click', () => operationBuffer('×'));
 divideButton.addEventListener('click', () => operationBuffer('÷'));
 equals.addEventListener('click', () => calculate());
-
 decimal.addEventListener('click', () => decimalBuffer('.'));
 
 clearButton.addEventListener('click', () => clearDisplay());
-//deleteButton.addEventListener('click', () => );
+deleteButton.addEventListener('click', () => deleteFunction());
 
 let firstNumber;
 let secondNumber;
@@ -113,7 +112,7 @@ function operationBuffer(sign) {
         equationDisplayUpdate();
         operator = sign;
     }
-};
+}
 
 function decimalBuffer() {
     //console.log(`demicalBufferStart: ${workingDisplayString}`);
@@ -136,6 +135,7 @@ function calculate() {
 
 function workingDisplayUpdate() { workingDisplay.innerText = workingDisplayString; };
 function equationDisplayUpdate() { equationDisplay.innerText = equationDisplayString; }
+
 function clearDisplay() {
     workingDisplayString = '0';
     equationDisplayString = '';
@@ -143,6 +143,11 @@ function clearDisplay() {
     equationDisplayUpdate()
     firstNumberCompleted = false;
     operator = '';
+}
+
+function deleteFunction() {
+    workingDisplayString = workingDisplayString.slice(0, -1);
+    workingDisplayUpdate();
 }
 
 function operate(firstNumber, operator, secondNumber) {
@@ -164,18 +169,11 @@ function operate(firstNumber, operator, secondNumber) {
     }
     result = result.toFixed(10);
     result = result.toString();
-    while (result.slice(-1) === '0') {
+    while (result.slice(-1) === '0' || result.slice(-1) === '.') {
         result = result.slice(0, -1);
         console.log(result);
     }
     return result;
 }
-
-//Bugs to fix & things to do
-// 0.1 + 0.2 = 0.30000000000000004
-// 0.3 - 0.2 = 0.09999999999999998
-// read to fix above bug: https://javascript.plainenglish.io/why-0-1-0-2-0-3-in-javascript-d7e218224a72
-// gpt says 1234567890 * 9876543210 = 12193263113702179500 but yours = 12193263111263527000
-// still need to add a negative number functionality 
 
 
