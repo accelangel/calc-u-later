@@ -83,18 +83,18 @@ clearButton.addEventListener('click', () => clearDisplay());
 
 let firstNumber;
 let secondNumber;
-let operator;
+let operator = '';
 let workingDisplayString = '0';
 let equationDisplayString = '';
 let firstNumberCompleted = false;
 let result;
 
 function numberBuffer(numberInput) {
-    console.log(`numberBufferStart: ${workingDisplayString}`);
+    //console.log(`numberBufferStart: ${workingDisplayString}`);
     if (workingDisplayString === '0') workingDisplayString = '';
-    console.log(`numberBufferMiddle: ${workingDisplayString}`);
+    //console.log(`numberBufferMiddle: ${workingDisplayString}`);
     workingDisplayString += numberInput;
-    console.log(`numberBufferEnd: ${workingDisplayString}`);
+    //console.log(`numberBufferEnd: ${workingDisplayString}`);
 }
 
 function operationBuffer(sign) {
@@ -106,7 +106,7 @@ function operationBuffer(sign) {
         operator = sign;
         //this may or may not create other bugs, but im tring to fix the second numbner . only demical bug
         workingDisplayString = '0';
-        console.log(`operationBuffer: ${workingDisplayString}`);
+        //console.log(`operationBuffer: ${workingDisplayString}`);
     }
     else { //this allows you to change the operator sign after the secondNumber is already added
         equationDisplayString = `${firstNumber} ${sign}`;
@@ -116,12 +116,12 @@ function operationBuffer(sign) {
 };
 
 function decimalBuffer() {
-    console.log(`demicalBufferStart: ${workingDisplayString}`);
+    //console.log(`demicalBufferStart: ${workingDisplayString}`);
     if (!workingDisplayString.includes('.')) {
         //
         workingDisplayString += '.';
         workingDisplayUpdate();
-        console.log(`demicalBufferEnd: ${workingDisplayString}`);
+        //console.log(`demicalBufferEnd: ${workingDisplayString}`);
     }
 }
 
@@ -137,7 +137,12 @@ function calculate() {
 function workingDisplayUpdate() { workingDisplay.innerText = workingDisplayString; };
 function equationDisplayUpdate() { equationDisplay.innerText = equationDisplayString; }
 function clearDisplay() {
-
+    workingDisplayString = '0';
+    equationDisplayString = '';
+    workingDisplayUpdate();
+    equationDisplayUpdate()
+    firstNumberCompleted = false;
+    operator = '';
 }
 
 function operate(firstNumber, operator, secondNumber) {
