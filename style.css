@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Technology-Bold';
     src: url('fonts/Technology-Bold.ttf') format('truetype');
-  }
-  
+}
+
 body {
-    min-height: 70vh;
+    min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,14 +28,14 @@ body {
 .display {
     height: 60px;
     width: 88%;
-    background-color: #e8f2e9;
+    background-color: #e8ecf2;
     margin: 10px 0px 5px 0px;
     border-radius: 5px;
     border: solid 2px black;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    color: rgb(89, 150, 77);
+    color: rgb(42, 139, 224);
 }
 
 .equationDisplay {
@@ -122,10 +122,22 @@ body {
 }
 
 img {
-    margin-top: 100px;
-    height: 300px;
+    position: absolute;
+    bottom: 0;
+    height: 400px;
 }
 
 h1 {
-    color: rgb(89, 150, 77);
+    color: rgb(128, 141, 26);
+}
+
+footer {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+}
+
+a {
+    color: rgb(128, 141, 26);
 }
