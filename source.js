@@ -87,8 +87,14 @@ let workingDisplayString = '0';
 let equationDisplayString = '';
 let firstNumberCompleted = false;
 let result;
+let calculationPerformed = false;
 
 function numberBuffer(numberInput) {
+    console.log(calculationPerformed);
+    if(calculationPerformed === true) {
+        clearDisplay();
+        calculationPerformed = false;
+    }
     //console.log(`numberBufferStart: ${workingDisplayString}`);
     if (workingDisplayString === '0') workingDisplayString = '';
     //console.log(`numberBufferMiddle: ${workingDisplayString}`);
@@ -125,6 +131,7 @@ function decimalBuffer() {
 }
 
 function calculate() {
+    calculationPerformed = true;
     secondNumber = workingDisplayString;
     //console.log(`${firstNumber} ${operator} ${secondNumber} =`);
     workingDisplayString = operate(firstNumber, operator, secondNumber);
