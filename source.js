@@ -76,28 +76,51 @@ multiplyButton.addEventListener('click', () => operationBuffer('×'));
 divideButton.addEventListener('click', () => operationBuffer('÷'));
 
 decimal.addEventListener('click', () => decimalBuffer('.'));
-equals.addEventListener('click', () => operate('='));
+equals.addEventListener('click', () => calculate());
 
 clearButton.addEventListener('click', () => clearDisplay());
 //deleteButton.addEventListener('click', () => );
 
 let firstNumber;
 let secondNumber;
+let operator;
 let workingDisplayString = '0';
 let equationDisplayString = '';
+let hasRun = false;
+let firstNumberCompleted = false;
 
 function numberBuffer(numberInput) {
     if (workingDisplayString === '0') workingDisplayString = '';
+    if (firstNumber) { // if first number exists, this is code for second number
+        if (!hasRun) {
+            workingDisplayString = '';
+            hasRun = true;
+        }
+    };
     workingDisplayString += numberInput;
 }
 
-function operationBuffer(operator) {
-    firstNumber = workingDisplayString;
-    //console.log(firstNumber); 
-    equationDisplayString = `${firstNumber} ${operator}`;
-    equationDisplayUpdate();
-}
+function operationBuffer(sign) {
+    if (firstNumberCompleted === false) {
+        firstNumber = workingDisplayString;
+        equationDisplayString = `${firstNumber} ${sign}`;
+        equationDisplayUpdate();
+        firstNumberCompleted = true;
+        operator = sign;
+    }
+    else { //this allows you to change the operator sign after the secondNumber is already added
+        equationDisplayString = `${firstNumber} ${sign}`;
+        equationDisplayUpdate();
+        operator = sign;
+    }
+};
 
+function calculate() {
+    secondNumber = workingDisplayString;
+    console.log(`${firstNumber} ${operator} ${secondNumber} =`);
+    workingDisplayString = operate(firstNumber, operator, secondNumber);
+    workingDisplayUpdate();
+}
 
 function workingDisplayUpdate() { workingDisplay.innerText = workingDisplayString; };
 function equationDisplayUpdate() { equationDisplay.innerText = equationDisplayString; }
