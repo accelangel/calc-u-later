@@ -6,3 +6,6 @@ Key Features:
 - provides the option to change your operator before pressing equals
 - allows you to calculate equations without pressing clear, you need only punch in your next equation
 - [NEW]keyboard functionality!
+
+Check it out!
+https://accelangel.github.io/calc-u-later/
