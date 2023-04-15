@@ -7,6 +7,4 @@ Key Features:
 - allows you to calculate equations without pressing clear, you need only punch in your next equation
 - [NEW]keyboard functionality!
 
-Check it out!
-[Check it out!]([https://pages.github.com/](https://accelangel.github.io/calc-u-later/))
-
+[Check it out!]([url](https://pages.github.com/](https://accelangel.github.io/calc-u-later/))
