@@ -8,4 +8,5 @@ Key Features:
 - [NEW]keyboard functionality!
 
 Check it out!
-https://accelangel.github.io/calc-u-later/
+[Check it out!]([https://pages.github.com/](https://accelangel.github.io/calc-u-later/))
+
