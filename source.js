@@ -69,6 +69,7 @@ sumButton.addEventListener('click', () => operationBuffer('+'));
 subtractButton.addEventListener('click', () => operationBuffer('−'));
 multiplyButton.addEventListener('click', () => operationBuffer('×'));
 divideButton.addEventListener('click', () => operationBuffer('÷'));
+
 equals.addEventListener('click', () => calculate());
 decimal.addEventListener('click', () => decimalBuffer());
 
