@@ -90,11 +90,8 @@ let result;
 let calculationPerformed = false;
 
 function numberBuffer(numberInput) {
-    console.log(calculationPerformed);
-    if(calculationPerformed === true) {
-        clearDisplay();
-        calculationPerformed = false;
-    }
+    //console.log(calculationPerformed);
+    newCalculation();
     //console.log(`numberBufferStart: ${workingDisplayString}`);
     if (workingDisplayString === '0') workingDisplayString = '';
     //console.log(`numberBufferMiddle: ${workingDisplayString}`);
@@ -121,6 +118,7 @@ function operationBuffer(sign) {
 }
 
 function decimalBuffer() {
+    newCalculation();
     //console.log(`demicalBufferStart: ${workingDisplayString}`);
     if (!workingDisplayString.includes('.')) {
         //
@@ -153,8 +151,25 @@ function clearDisplay() {
 }
 
 function deleteFunction() {
-    workingDisplayString = workingDisplayString.slice(0, -1);
-    workingDisplayUpdate();
+    console.log(workingDisplayString);
+    if (workingDisplayString.length >= 1) {
+        workingDisplayString = workingDisplayString.slice(0, -1);
+        workingDisplayUpdate();
+        console.log(workingDisplayString);
+        if (workingDisplayString === '') {
+            workingDisplayString = '0';
+            workingDisplayUpdate();
+            console.log(workingDisplayString);
+        }
+    }
+
+}
+
+function newCalculation() {
+    if (calculationPerformed === true) {
+        clearDisplay();
+        calculationPerformed = false;
+    }
 }
 
 function operate(firstNumber, operator, secondNumber) {
