@@ -157,9 +157,7 @@ function deleteFunction() {
         workingDisplayUpdate();
         console.log(workingDisplayString);
         if (workingDisplayString === '') {
-            workingDisplayString = '0';
-            workingDisplayUpdate();
-            console.log(workingDisplayString);
+            clearDisplay();
         }
     }
 
