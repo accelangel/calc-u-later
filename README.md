@@ -7,6 +7,6 @@
 - allows you to calculate equations without pressing clear, you need only punch in your next equation
 - *keyboard functionality!*
 
-[**Check it out!**]((https://accelangel.github.io/calc-u-later/))
+[GitHub Pages](https://accelangel.github.io/calc-u-later/)
 
 ![alligator](https://user-images.githubusercontent.com/112129390/232194130-f4d399dd-6c3f-46be-a81a-66397ad9c1d9.jpg)
