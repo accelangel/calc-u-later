@@ -65,6 +65,10 @@ zero.addEventListener('click', () => {
     workingDisplayUpdate();
 });
 
+document.addEventListener('keydown', e => {
+    keyboardFunctionality(e);
+});
+
 sumButton.addEventListener('click', () => operationBuffer('+'));
 subtractButton.addEventListener('click', () => operationBuffer('−'));
 multiplyButton.addEventListener('click', () => operationBuffer('×'));
@@ -178,7 +182,7 @@ function operate(firstNumber, operator, secondNumber) {
     return result;
 };
 
-document.addEventListener('keydown', e => {
+function keyboardFunctionality(e) {
     if (regexNumbers.test(e.key)) {
         let input = e.key.match(regexNumbers);
         numberBuffer(input[0]);
@@ -186,15 +190,18 @@ document.addEventListener('keydown', e => {
     }
     else if (regexOperators.test(e.key)) {
         let input = e.key.match(regexOperators);
+        if (input[0] === '*') input[0] = '×';
+        else if (input[0] === '/') input[0] = '÷';
+        else if (input[0] === '-') input[0] = '−';
         operationBuffer(input[0]);
     }
-    else if (e.key === 'Enter') {
+    else if (e.key === 'Enter' || e.key === 'Return key') {
         calculate();
     }
     else if (e.key === '.') {
         decimalBuffer();
     }
-    else if (e.key === 'Backspace' || e.key === 'Return key') {
+    else if (e.key === 'Backspace') {
         deleteFunction();
     }
-});
+};
