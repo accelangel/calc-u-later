@@ -8,4 +8,5 @@
 - *keyboard functionality!*
 
 [**Check it out!**](https://pages.github.com/](https://accelangel.github.io/calc-u-later/))
-![alligator](https://user-images.githubusercontent.com/112129390/232193977-c20efb01-ca7d-4a1b-b93e-eac09f8eaf91.jpg | width=200)
+
+![alligator](https://user-images.githubusercontent.com/112129390/232194130-f4d399dd-6c3f-46be-a81a-66397ad9c1d9.jpg)
